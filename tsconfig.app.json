@@ -14,9 +14,11 @@
       "@widgets/*": ["widgets/*"],
       "@features/*": ["features/*"]
     },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
@@ -31,5 +33,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src", "types"]
 }
