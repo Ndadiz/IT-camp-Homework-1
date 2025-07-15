@@ -1,7 +1,10 @@
-html, body, #root {
-  height: 100%;
+*{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+html, body, #root {
+  height: 100%;
 }
 :root {
   font-family: 'VTB Group UI', sans-serif;
@@ -17,10 +20,11 @@ button{
 }
 
 .task__container{
-  border:  2px solid black;
+  background-color: #F9F7F4;
   border-radius: 20px;
   padding: 20px;
   min-height: 500px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   @media (max-width: 900px) {
     width: 300px;
   }

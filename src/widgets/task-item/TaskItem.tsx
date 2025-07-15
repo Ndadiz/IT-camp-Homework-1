@@ -10,22 +10,33 @@ const Flex = styled.div`
   gap: 16px;
   padding: 16px;
   justify-content: center;
-  @media (max-width: 900px) {
-    flex-direction: column;}
+  flex-direction: column;
 `;
 
 const Item = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid #ccc;
-  border-radius: 12px;
+  gap:10px;
   padding: 1rem;
-  min-height: 300px;
   cursor:pointer;
-  
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: 300ms ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
+const TaskBody = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+`
+const AddLink = styled.a`
+  text-align:center;
+  text-decoration:none;
+  color:grey;
+`
 const getTagKind = (value: string) => {
   switch (value) {
     case "High":
@@ -66,6 +77,7 @@ function TaskItem() {
               <h2 className="task__title">Priority: {priority}</h2>
               <Divider />
             </div>
+          <TaskBody>
             <Flex>
               {tasks.map(([id, item]) => (
                 <Item key={id} onClick={() => navigate(`/task/${id}`)}>
@@ -79,6 +91,8 @@ function TaskItem() {
                 </Item>
               ))}
             </Flex>
+            <AddLink href="">Add Task</AddLink>
+            </TaskBody>
           </div>
         );
       }
