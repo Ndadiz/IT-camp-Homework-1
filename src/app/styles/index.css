@@ -33,3 +33,23 @@ button{
 .task__title{
   text-align: center;
 }
+.delete-btn{
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  transition: 300ms ease;
+  cursor: pointer;
+}
+.delete-svg{
+  width:25px;
+  height:25px;
+}
+.delete-svg:hover{
+  opacity: 0.7;
+}
+#root{
+  padding-top: 25px;
+}
