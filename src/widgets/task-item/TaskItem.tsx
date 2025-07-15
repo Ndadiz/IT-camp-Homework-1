@@ -1,19 +1,9 @@
 import styled from "styled-components";
-import { Tags, Tag, Button, Divider } from "@admiral-ds/react-ui";
+import { Tags, Tag, Divider } from "@admiral-ds/react-ui";
 import { useNavigate } from "react-router-dom";
-import { useTasks } from "../context/TasksContext.tsx";
-import type { Priority } from "../data/tasks";
-
-export const Section = styled.section`
-  padding: 25px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  gap: 20px;
-  @media (max-width: 900px) {
-  flex-wrap:wrap;}
-`;
+import { useTasks } from "@shared/lib/tasks-context";
+import type { Priority } from "@entities/model/tasks";
+import { Section } from "@shared/ui/Section";
 
 const Flex = styled.div`
   display: flex;
@@ -32,6 +22,8 @@ const Item = styled.div`
   border-radius: 12px;
   padding: 1rem;
   min-height: 300px;
+  cursor:pointer;
+  
 `;
 
 const getTagKind = (value: string) => {
@@ -76,7 +68,7 @@ function TaskItem() {
             </div>
             <Flex>
               {tasks.map(([id, item]) => (
-                <Item key={id}>
+                <Item key={id} onClick={() => navigate(`/task/${id}`)}>
                   <h3>{item.title}</h3>
                   {item.description && <p>{item.description}</p>}
                   <Tags>
@@ -84,9 +76,6 @@ function TaskItem() {
                     <Tag kind={getTagKind(item.status)}>{item.status}</Tag>
                     <Tag kind={getTagKind(item.priority)}>{item.priority}</Tag>
                   </Tags>
-                  <Button appearance="primary" onClick={() => navigate(`/task/${id}`)}>
-                    Edit
-                  </Button>
                 </Item>
               ))}
             </Flex>

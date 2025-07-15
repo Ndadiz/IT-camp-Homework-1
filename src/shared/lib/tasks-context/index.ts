@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import type { Card } from '../data/tasks.tsx';
+import type { Card } from '@entities/model/tasks';
 
 type TasksContextType = {
   items: { [id: number]: Card };

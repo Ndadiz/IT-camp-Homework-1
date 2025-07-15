@@ -1,7 +1,21 @@
 {
   "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+      "lib": [
+      "dom",
+      "dom.iterable",
+      "es2017",
+      "esnext"
+    ],
+    "jsx": "react-jsx",
+    "baseUrl": "src",
+    "paths": {
+      "@entities/*": ["entities/*"],
+      "@pages/*": ["pages/*"],
+      "@shared/*": ["shared/*"],
+      "@widgets/*": ["widgets/*"],
+      "@features/*": ["features/*"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
 }

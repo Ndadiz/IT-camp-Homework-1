@@ -3,13 +3,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import TaskList from './pages/TaskList.tsx'
-import TaskDetails from './pages/TaskDetails.tsx';
-import { TasksContext } from "./context/TasksContext";
-import type { Card } from './data/tasks.tsx';
+import TaskList from '@pages/list/TaskList';
+import TaskDetails from '@pages/task/TaskDetails';
+import { TasksContext } from '@shared/lib/tasks-context';
+import type { Card } from '@entities/model/tasks';
 import { useState } from "react";
 
-function App() {
+function AppRouter() {
   const [items, setItems] = useState<{ [id: number]: Card }>({
     1: {
       title: "Fix login bug",
@@ -44,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRouter;
