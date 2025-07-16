@@ -1,6 +1,10 @@
 import TaskItem from '@widgets/task-item/TaskItem';
 
-
+/**
+ * 
+ * @description Отображает виджет задач
+ * 
+ */
 function TaskList() {
   return (
     <>

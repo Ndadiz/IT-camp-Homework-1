@@ -21,6 +21,10 @@ const Container = styled.div`
   }
 `;
 
+/**
+ * @description Обрабатывает данные полученные из EditTaskForm
+ */
+
 export function TaskEditor() {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
@@ -28,12 +32,22 @@ export function TaskEditor() {
   const taskId = id ? parseInt(id) : "new";
   const currentTask = items[taskId];
   
+  /**
+   * @description Получает id последней задачи
+   * @returns lastKey
+   */
+
   const getLastId = () => {
     const keys = Object.keys(items);
     const lastKey = keys[keys.length - 1];
     return lastKey ? parseInt(lastKey) + 1 : 1;
   }
 
+  /**
+   * @description Вносит изменения или добавляет новую задачу на основе данных полученных из EditTaskForm
+   * @param changes 
+   */
+  
   const handleSave = (changes: Partial<Card>) => {
     if (taskId == "new"){
     addTask({

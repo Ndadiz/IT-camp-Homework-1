@@ -47,7 +47,10 @@ const AddLink = styled(Link)`
   text-decoration: none;
   color: grey;
 `;
-
+const Date = styled.div`
+  text-align:right;
+  color:grey;
+`
 const getTagKind = (value: string) => {
   switch (value) {
     case "High":
@@ -60,7 +63,11 @@ const getTagKind = (value: string) => {
       return "success";
   }
 };
-
+/**
+ * 
+ * @description Выводит карточки, сортируя их по приоритету
+ * 
+ */
 function TaskItem() {
   const tasks = useUnit($tasks);
   const navigate = useNavigate();
@@ -94,6 +101,7 @@ function TaskItem() {
                         <Tag kind={getTagKind(item.status)}>{item.status}</Tag>
                         <Tag kind={getTagKind(item.priority)}>{item.priority}</Tag>
                       </Tags>
+                      <Date>{item.date}</Date>
                     </Item>
                   ))
                 )}

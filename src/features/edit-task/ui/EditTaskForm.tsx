@@ -1,10 +1,5 @@
-import {
-  EditMode,
-  Select,
-  TextArea,
-  Option,
-  Button,
-} from "@admiral-ds/react-ui";
+import styled from "styled-components";
+import { EditMode, Select, TextArea, Option } from "@admiral-ds/react-ui";
 import type { Category, Status, Priority } from "@entities/model/tasks";
 import type { Card } from "@entities/model/tasks";
 import { createStore, createEvent } from "effector";
@@ -17,6 +12,16 @@ type Props = {
   onCancel: () => void;
 };
 
+const SaveBtn = styled.button`
+  background-color: #286562;
+  color: #fff;
+`;
+
+const CancelBtn = styled.button`
+  background-color: #e0f0e5;
+  color: #286562;
+`;
+
 // Создаем события и сторы вне компонента
 const title = createEvent<string>();
 const description = createEvent<string>();
@@ -25,6 +30,7 @@ const status = createEvent<Status>();
 const priority = createEvent<Priority>();
 const setTitleError = createEvent<string>();
 
+//Создаем стор
 const $title = createStore("");
 const $description = createStore("");
 const $category = createStore<Category>("Bug");
@@ -39,6 +45,13 @@ $category.on(category, (_, value) => value);
 $status.on(status, (_, value) => value);
 $priority.on(priority, (_, value) => value);
 $titleError.on(setTitleError, (_, value) => value);
+
+/**
+ * @param task {Card}
+ * @param onSave {(data: Partial<Card>)}
+ * @param onCancel {()}
+ * @description Отображает форму, передает данные из состояний элементов формы 
+ */
 export function EditTaskForm({ task, onSave, onCancel }: Props) {
   React.useEffect(() => {
     title(task?.title ?? "");
@@ -107,16 +120,25 @@ export function EditTaskForm({ task, onSave, onCancel }: Props) {
           <Option value="High">High</Option>
         </Select>
       </label>
-      <Button
-        appearance="primary"
+      <SaveBtn
+        className="btn"
         onClick={(e) => {
           e.preventDefault();
-
           const currentTitle = $title.getState();
           if (!currentTitle.trim()) {
             setTitleError("Title is required");
             return;
+          } else {
+            setTitleError("");
           }
+          const now = new Date();
+          const formattedDate = now
+            .toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            })
+            .replace(/ /g, "-");
 
           onSave({
             title: currentTitle,
@@ -124,14 +146,15 @@ export function EditTaskForm({ task, onSave, onCancel }: Props) {
             category: $category.getState(),
             status: $status.getState(),
             priority: $priority.getState(),
+            date: formattedDate
           });
         }}
       >
         Save
-      </Button>
-      <Button appearance="secondary" onClick={onCancel}>
+      </SaveBtn>
+      <CancelBtn className="btn" onClick={onCancel}>
         Cancel
-      </Button>
+      </CancelBtn>
     </form>
   );
 }

@@ -4,6 +4,7 @@ export interface Card {
   category: Category;
   status: Status;
   priority: Priority;
+  date: string
 }
 
 export type Category = "Bug" | "Feature" | "Documentation" | "Refactor" | "Test";
