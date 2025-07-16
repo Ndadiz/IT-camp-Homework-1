@@ -5,11 +5,11 @@ import type { Card } from "@entities/model/tasks";
 import { createStore, createEvent } from "effector";
 import { useUnit } from "effector-react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 type Props = {
   task?: Card;
   onSave: (data: Partial<Card>) => void;
-  onCancel: () => void;
 };
 
 const SaveBtn = styled.button`
@@ -17,9 +17,11 @@ const SaveBtn = styled.button`
   color: #fff;
 `;
 
-const CancelBtn = styled.button`
+const CancelBtn = styled(Link)`
   background-color: #e0f0e5;
   color: #286562;
+  text-align: center;
+  text-decoration: none;
 `;
 
 // Создаем события и сторы вне компонента
@@ -49,10 +51,9 @@ $titleError.on(setTitleError, (_, value) => value);
 /**
  * @param task {Card}
  * @param onSave {(data: Partial<Card>)}
- * @param onCancel {()}
  * @description Отображает форму, передает данные из состояний элементов формы 
  */
-export function EditTaskForm({ task, onSave, onCancel }: Props) {
+export function EditTaskForm({ task, onSave}: Props) {
   React.useEffect(() => {
     title(task?.title ?? "");
     description(task?.description ?? "");
@@ -152,7 +153,7 @@ export function EditTaskForm({ task, onSave, onCancel }: Props) {
       >
         Save
       </SaveBtn>
-      <CancelBtn className="btn" onClick={onCancel}>
+      <CancelBtn to="/" className="btn">
         Cancel
       </CancelBtn>
     </form>

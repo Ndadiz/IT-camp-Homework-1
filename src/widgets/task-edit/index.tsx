@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router";
 import { EditTaskForm } from "@features/edit-task/ui/EditTaskForm";
 import { Section } from "@shared/ui/Section";
 import type { Card } from "@entities/model/tasks";
@@ -74,7 +74,6 @@ export function TaskEditor() {
         <EditTaskForm 
           task={currentTask}
           onSave={handleSave}
-          onCancel={() => navigate("/")}
         />
       </Container>
     </Section>
