@@ -32,7 +32,7 @@ const status = createEvent<Status>();
 const priority = createEvent<Priority>();
 const setTitleError = createEvent<string>();
 
-//Создаем стор
+// Создаем стор
 const $title = createStore("");
 const $description = createStore("");
 const $category = createStore<Category>("Bug");

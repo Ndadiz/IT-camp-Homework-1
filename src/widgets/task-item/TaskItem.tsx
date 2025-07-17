@@ -30,9 +30,6 @@ const Item = styled.div`
 
   &:hover {
     transform: scale(1.1);
-    .delete-btn {
-      display: block;
-    }
   }
 `;
 
