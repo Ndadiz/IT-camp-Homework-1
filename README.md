@@ -8,5 +8,6 @@
   * UI-фреймворк: AdmiralDS
   * Инструменты стилизации: styled-components
   * State Manager: Effector
+  * Сервер: Node.js + Express
 
 Ссылка на приложение: https://it-camp-homework-1.vercel.app/
