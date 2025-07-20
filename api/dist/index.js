@@ -2,7 +2,7 @@ import express from "express";
 import router from "./router.js";
 import cors from "cors";
 console.log("SERVER WORKING");
-const PORT = 5000;
+const PORT = 3000;
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -16,4 +16,6 @@ async function startApp() {
     }
 }
 startApp();
+// Export for Vercel
+export default app;
 //# sourceMappingURL=index.js.map
