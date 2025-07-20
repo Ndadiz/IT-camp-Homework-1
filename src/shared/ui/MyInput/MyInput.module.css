@@ -1,0 +1,13 @@
+.MyInput {
+    width: 80%;
+    border: 2px solid #000000;
+    padding: 10.5px 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+@media (max-width: 900px) {
+    .MyInput {
+        width: 33%;
+    }
+}

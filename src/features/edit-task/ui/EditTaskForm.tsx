@@ -80,14 +80,15 @@ export function EditTaskForm({ task, onSave}: Props) {
         {titleError && <p style={{ color: "red" }}>{titleError}</p>}
       </label>
       <label>
-        <h4>Description:</h4>
+        <h4 style={{ display: "inline" }}>Description:</h4>
         <TextArea
           value={descriptionValue}
           onChange={(e) => description(e.currentTarget.value)}
         />
       </label>
       <label>
-        <h4>Category:</h4>
+        <h4 style={{ display: "inline" }}>Category:</h4>
+        <span style={{ color: "red" }}>*</span>
         <Select
           value={categoryValue}
           onChange={(e) => category(e.target.value as Category)}
@@ -100,7 +101,8 @@ export function EditTaskForm({ task, onSave}: Props) {
         </Select>
       </label>
       <label>
-        <h4>Status:</h4>
+        <h4 style={{ display: "inline" }}>Status:</h4>
+        <span style={{ color: "red" }}>*</span>
         <Select
           value={statusValue}
           onChange={(e) => status(e.target.value as Status)}
@@ -111,7 +113,8 @@ export function EditTaskForm({ task, onSave}: Props) {
         </Select>
       </label>
       <label>
-        <h4>Priority:</h4>
+        <h4 style={{ display: "inline" }}>Priority:</h4>
+        <span style={{ color: "red" }}>*</span>
         <Select
           value={priorityValue}
           onChange={(e) => priority(e.target.value as Priority)}
