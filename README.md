@@ -14,6 +14,6 @@
 Запуск:
 * Сервер: api/:
   npm run start
-* Фронтенд: frontend/
+* Фронтенд: frontend/:
  npm install
  npm run dev
