@@ -11,3 +11,9 @@
   * Сервер: Node.js + Express
 
 Ссылка на приложение: https://it-camp-homework-1.vercel.app/
+Запуск:
+*Сервер: api/
+ npm run start
+*Фронтенд: frontend/
+ npm install
+ npm run dev
