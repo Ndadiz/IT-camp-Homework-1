@@ -10,7 +10,8 @@
   * State Manager: Effector
   * Сервер: Node.js + Express
 
-Ссылка на приложение: https://it-camp-homework-1.vercel.app/
+Ссылка на приложение: [https://it-camp-homework-1.vercel.app/](https://it-camp-task-list-client-swz9.vercel.app/)
+
 Запуск:
 * Сервер: api/: npm run dev:api
 * Фронтенд: client/: npm run dev:client
