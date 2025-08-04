@@ -2,7 +2,6 @@ import type { SortKey } from "@pages/list/TaskList";
 // import { Option, Select} from "@admiral-ds/react-ui";
 import id from "./MySelect.module.css"
 import classes from "./MySelect.module.css"
-import styled from "styled-components";
 
 type Option = {
   value: string;

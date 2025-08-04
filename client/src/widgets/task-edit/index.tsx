@@ -56,8 +56,8 @@ export function TaskEditor() {
   const parsedId = parseInt(id);
   const { data: currentTask, isLoading, error } = getOne(parsedId);
 
-  if (isLoading) return <ServerStatus>Loading...</ServerStatus>;
-  if (error) return <ServerStatus>Error: {error.message}</ServerStatus>;
+  if (isLoading) return <ServerStatus className="Loading"><img src="src/shared/ui/assets/icons/Loading.png" alt="" /></ServerStatus>;
+    if (error) return <ServerStatus className="Loading">Error: {error.message}</ServerStatus>;
 
   const handleSave = (changes: Partial<Card>) => {
     updateMutation.mutate({ id: parsedId, task: changes });
