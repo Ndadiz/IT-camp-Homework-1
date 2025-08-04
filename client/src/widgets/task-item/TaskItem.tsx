@@ -10,21 +10,19 @@ const Item = styled.div`
   display: flex;
   gap: 10px;
   padding: 1rem;
-  cursor: pointer;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: 300ms ease;
+  font-family: 'HelveticNowBold', sans-serif;
   flex-direction:column;
-
-  &:hover {
-    transform: scale(1.1);
-  }
+  color: #fff;
 `;
 
 const Date = styled.div`
   text-align: right;
-  color: grey;
+  color: #FFFFFF;
 `;
+const MyTag = styled(Tag)`
+  background-color: #D9D9D9;
+  font-family: 'HelveticNowBold', sans-serif;
+`
 const getTagKind = (value: string) => {
   switch (value) {
     case "High":
@@ -47,18 +45,20 @@ interface TaskItemProps {
  */
 function TaskItem( {task}:TaskItemProps ) {
   const navigate = useNavigate();
-  return (
-              <Item onClick={() => navigate(`/task/${task.id}`)}>
-                <DeleteBtn id={task.id} />
-                <h3>{task.title}</h3>
-                {task.description && <p>{task.description}</p>}
-                <Tags>
-                  <Tag>{task.category}</Tag>
-                  <Tag kind={getTagKind(task.status)}>{task.status}</Tag>
-                  <Tag kind={getTagKind(task.priority)}>{task.priority}</Tag>
-                </Tags>
-                <Date>{task.date}</Date>
-              </Item>
+  return (  <div className="task-container">
+                <img src="src/shared/ui/assets/icons/knife.png" className="knife" alt="" />
+                <Item onClick={() => navigate(`/task/${task.id}`)}>
+                  <DeleteBtn id={task.id} />
+                  <h3>{task.title}</h3>
+                  {task.description && <p>{task.description}</p>}
+                  <Tags>
+                    <MyTag>{task.category}</MyTag>
+                    <MyTag kind={getTagKind(task.status)}>{task.status}</MyTag>
+                    <MyTag kind={getTagKind(task.priority)}>{task.priority}</MyTag>
+                  </Tags>
+                  <Date>{task.date}</Date>
+                </Item>
+              </div>
   );
 }
 

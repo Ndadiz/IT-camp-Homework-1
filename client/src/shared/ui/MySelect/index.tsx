@@ -1,6 +1,9 @@
 import type { SortKey } from "@pages/list/TaskList";
-import {Select, Option} from "@admiral-ds/react-ui";
+// import { Option, Select} from "@admiral-ds/react-ui";
 import id from "./MySelect.module.css"
+import classes from "./MySelect.module.css"
+import styled from "styled-components";
+
 type Option = {
   value: string;
   name: string;
@@ -15,20 +18,20 @@ type MySelectProps = {
 
 export default function MySelect({options, defaultValue, value, onChange}:MySelectProps) {
   return (
-    <div>
+    <div className={classes.SelectWrapper}>
       
-        <Select id={id.MySelect}
+        <select id={id.MySelect}
         value={value}
         onChange = {event => onChange(event.target.value as SortKey)}
         >
-            <Option disabled value="">{defaultValue}</Option>
+            <option disabled value="">{defaultValue}</option>
             {
                 options.map(
                     opt =>
-                        <Option key={opt.value} value={opt.value}>{opt.name}</Option>
+                        <option key={opt.value} value={opt.value} className={classes.SelectOption}>{opt.name} </option>
                 )
             }
-        </Select>
+        </select>
       </div>
   )
 }

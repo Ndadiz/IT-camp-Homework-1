@@ -1,9 +1,23 @@
 .filterContainer {
-    background-color: #fff;
     padding: 10px 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     gap: 10px;
+}
+
+.AddBtn{
+  height: 130px;
+  scale: 1;
+  transition: 300ms ease-in;
+}
+@media (max-width: 900px) {
+  .AddBtn {
+    width: 90px;
+    height: 100px;
+  }
+}
+
+.AddBtn:hover{
+  scale: 1.1;
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Card } from "@entities/model/tasks";
 const baseUrl = 'https://backend-study-one.vercel.app'
-export const fetchTasks = () => axios.get(`${baseUrl}/api/tasks`).then(res => res.data);
+export const fetchTasks =() => axios.get(`${baseUrl}/api/tasks`).then(res => res.data);
 
 export const fetchOne = (id:number) => axios.get(`${baseUrl}/api/tasks/${id}`).then(res => res.data)
 

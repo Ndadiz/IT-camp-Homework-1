@@ -11,8 +11,7 @@ import ServerStatus from "@shared/ui/ServerStatus";
 const Container = styled.div`
   width: 600px;
   margin: 0 auto;
-  border: 2px solid #ccc;
-  border-radius: 12px;
+  background-color: #000;
   padding: 16px;
   display: flex;
   flex-direction: column;

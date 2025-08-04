@@ -13,13 +13,10 @@ type Props = {
 };
 
 const SaveBtn = styled.button`
-  background-color: #286562;
-  color: #fff;
+  text-align:center;
 `;
 
 const CancelBtn = styled(Link)`
-  background-color: #e0f0e5;
-  color: #286562;
   text-align: center;
   text-decoration: none;
 `;
@@ -71,7 +68,7 @@ export function EditTaskForm({ task, onSave}: Props) {
   return (
     <form style={{ display: "flex", flexDirection: "column", gap: 16 }}>
       <label>
-        <h4 style={{ display: "inline" }}>Title:</h4>
+        <h4>Title:</h4>
         <span style={{ color: "red" }}>*</span>
         <EditMode
           value={titleValue}
@@ -80,14 +77,14 @@ export function EditTaskForm({ task, onSave}: Props) {
         {titleError && <p style={{ color: "red" }}>{titleError}</p>}
       </label>
       <label>
-        <h4 style={{ display: "inline" }}>Description:</h4>
+        <h4>Description:</h4>
         <TextArea
           value={descriptionValue}
           onChange={(e) => description(e.currentTarget.value)}
         />
       </label>
       <label>
-        <h4 style={{ display: "inline" }}>Category:</h4>
+        <h4>Category:</h4>
         <span style={{ color: "red" }}>*</span>
         <Select
           value={categoryValue}
@@ -101,7 +98,7 @@ export function EditTaskForm({ task, onSave}: Props) {
         </Select>
       </label>
       <label>
-        <h4 style={{ display: "inline" }}>Status:</h4>
+        <h4>Status:</h4>
         <span style={{ color: "red" }}>*</span>
         <Select
           value={statusValue}
@@ -113,7 +110,7 @@ export function EditTaskForm({ task, onSave}: Props) {
         </Select>
       </label>
       <label>
-        <h4 style={{ display: "inline" }}>Priority:</h4>
+        <h4>Priority:</h4>
         <span style={{ color: "red" }}>*</span>
         <Select
           value={priorityValue}

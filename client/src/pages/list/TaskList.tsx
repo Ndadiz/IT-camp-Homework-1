@@ -7,17 +7,16 @@ import ServerStatus from "@shared/ui/ServerStatus";
 import { Section } from "@shared/ui/Section";
 import type { Card } from "@entities/model/tasks";
 
-const Flex = styled.div`
-  display: flex;
-  gap: 16px;
-  padding: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
 
 const TaskBody = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  @media (max-width: 900px) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export type Filter = {
@@ -56,16 +55,17 @@ function TaskList() {
     );
   }, [filter.query, sortedTasks]);
 
-  if (isLoading) return <ServerStatus>Loading...</ServerStatus>;
-  if (error) return <ServerStatus>Error: {error.message}</ServerStatus>;
+  if (isLoading) return <ServerStatus className="Loading"><img src="src/shared/ui/assets/icons/Loading.png" alt="" /></ServerStatus>;
+  if (error) return <ServerStatus className="Loading">Error: {error.message}</ServerStatus>;
 
   return (
     <>
-      <h1 style={{ textAlign: "center", padding: "25px 0" }}>Task List</h1>
+    <div className="heading__container">
+      <div className="heading">Task List</div>
+    </div>
       <TaskFilter filter={filter} setFilter={setFilter} />
       <Section>
         <TaskBody>
-          <Flex>
             {sortedAndSearchedTasks.length === 0 ? (
               <p
                 style={{
@@ -81,7 +81,6 @@ function TaskList() {
                 <TaskItem key={task.id} task={task} />
               ))
             )}
-          </Flex>
         </TaskBody>
       </Section>
     </>

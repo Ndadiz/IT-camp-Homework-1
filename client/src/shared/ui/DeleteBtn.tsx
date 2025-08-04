@@ -1,4 +1,4 @@
-import Delete from "@shared/ui/assets/icons/minus-circle-svgrepo-com.svg?react";
+import Delete from "@shared/ui/assets/icons/DeleteBtn.svg?react";
 import { useMutation } from "@tanstack/react-query";
 import { deleteTask } from "@shared/api/tasks";
 import { queryClient } from "app/App";
