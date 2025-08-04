@@ -46,7 +46,7 @@ interface TaskItemProps {
 function TaskItem( {task}:TaskItemProps ) {
   const navigate = useNavigate();
   return (  <div className="task-container">
-                <img src="src/shared/ui/assets/icons/knife.png" className="knife" alt="" />
+                <img src="/icons/knife.png" className="knife" alt="" />
                 <Item onClick={() => navigate(`/task/${task.id}`)}>
                   <DeleteBtn id={task.id} />
                   <h3>{task.title}</h3>

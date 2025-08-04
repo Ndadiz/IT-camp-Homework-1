@@ -55,7 +55,7 @@ function TaskList() {
     );
   }, [filter.query, sortedTasks]);
 
-  if (isLoading) return <ServerStatus className="Loading"><img src="src/shared/ui/assets/icons/Loading.png" alt="" /></ServerStatus>;
+  if (isLoading) return <ServerStatus className="Loading"><img src="/icons/Loading.png" alt="" /></ServerStatus>;
   if (error) return <ServerStatus className="Loading">Error: {error.message}</ServerStatus>;
 
   return (
